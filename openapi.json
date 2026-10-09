@@ -7,6 +7,10 @@
     "contact": {
       "name": "Bitcopper Tech SpA",
       "email": "ceo@bitcoppertech.cl"
+    },
+    "license": {
+      "name": "Creative Commons Atribución 4.0 Internacional (CC BY 4.0) · © Bitcopper Tech SpA",
+      "identifier": "CC-BY-4.0"
     }
   },
   "servers": [

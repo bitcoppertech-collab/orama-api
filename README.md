@@ -12,7 +12,6 @@ Especificación de la API de ORAMA MCP (Bitcopper Tech SpA): `openapi.json`.
 
   Los esquemas no se inventan: cuando se tipen, saldrán del código de validación (`shared/*.js`).
 - Algunas operaciones no tienen comentario en el código, así que salen sin descripción. Se identifican porque les falta `description`; el campo `x-archivo` dice qué archivo documentar.
-- El archivo no declara licencia. La elige Bitcopper antes de publicarlo.
 
 ## Autenticación
 
@@ -24,3 +23,7 @@ El servidor MCP (`/api/mcp`) no está en esta especificación: usa el protocolo 
 ## Servidor
 
 `https://mcp-business-agent.vercel.app`
+
+## Licencia
+
+© Bitcopper Tech SpA. Esta especificación se publica bajo la licencia [Creative Commons Atribución 4.0 Internacional (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/): se puede usar, copiar y adaptar, también con fines comerciales, citando a Bitcopper Tech SpA. El texto legal completo está en `LICENSE`. La licencia cubre este documento, no el código de ORAMA MCP, que no es público, ni ninguna patente.
