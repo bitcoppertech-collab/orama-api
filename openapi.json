@@ -111,7 +111,8 @@
         "tags": [
           "aceptaciones"
         ],
-        "summary": "POST /api/v1/aceptaciones",
+        "summary": "POST { documento, version } → registra que el usuario aceptó la versión vigente de un documento (privacidad, términos). ",
+        "description": "POST { documento, version } → registra que el usuario aceptó la versión vigente de un documento (privacidad, términos). Aceptarla dos veces no es error.",
         "x-archivo": "app/api/v1/aceptaciones/route.js",
         "responses": {
           "200": {
@@ -264,7 +265,8 @@
         "tags": [
           "claves"
         ],
-        "summary": "GET /api/v1/claves",
+        "summary": "GET → claves personales del usuario para el servidor MCP (nombre, prefijo, fechas; nunca la clave ni su huella).",
+        "description": "GET → claves personales del usuario para el servidor MCP (nombre, prefijo, fechas; nunca la clave ni su huella).",
         "x-archivo": "app/api/v1/claves/route.js",
         "responses": {
           "200": {
@@ -1485,7 +1487,8 @@
         "tags": [
           "empresas"
         ],
-        "summary": "PUT /api/v1/empresas/{id}/contabilidad/bi",
+        "summary": "PUT { cuentas_cobrar?, cuentas_pagar?, cuentas_depreciacion? } → cuentas que usa el panel de indicadores (ver REGLAS arr",
+        "description": "PUT { cuentas_cobrar?, cuentas_pagar?, cuentas_depreciacion? } → cuentas que usa el panel de indicadores (ver REGLAS arriba). Solo la empresa.",
         "x-archivo": "app/api/v1/empresas/[id]/contabilidad/bi/route.js",
         "responses": {
           "200": {
@@ -1836,7 +1839,8 @@
         "tags": [
           "empresas"
         ],
-        "summary": "GET /api/v1/empresas/{id}/contabilidad/exportar",
+        "summary": "GET ?tipo=diario|estados|antiguedad&desde&hasta → CSV (ver el comentario de arriba). La empresa y su asesor.",
+        "description": "GET ?tipo=diario|estados|antiguedad&desde&hasta → CSV (ver el comentario de arriba). La empresa y su asesor.",
         "x-archivo": "app/api/v1/empresas/[id]/contabilidad/exportar/route.js",
         "responses": {
           "200": {
@@ -2155,7 +2159,8 @@
         "tags": [
           "empresas"
         ],
-        "summary": "PUT /api/v1/empresas/{id}/contabilidad",
+        "summary": "PUT { cuenta_caja_id?, cuenta_capital_id?, cuenta_por_pagar_id? } (uuid o null) → cuentas de efectivo y de capital de la",
+        "description": "PUT { cuenta_caja_id?, cuenta_capital_id?, cuenta_por_pagar_id? } (uuid o null) → cuentas de efectivo y de capital de la empresa (ver REGLAS arriba). Solo la empresa.",
         "x-archivo": "app/api/v1/empresas/[id]/contabilidad/route.js",
         "responses": {
           "200": {
@@ -2345,7 +2350,8 @@
         "tags": [
           "empresas"
         ],
-        "summary": "GET /api/v1/empresas/{id}/documentos/{did}",
+        "summary": "GET → una cotización u orden de compra con sus ítems. La empresa y su asesor.",
+        "description": "GET → una cotización u orden de compra con sus ítems. La empresa y su asesor.",
         "x-archivo": "app/api/v1/empresas/[id]/documentos/[did]/route.js",
         "responses": {
           "200": {
@@ -3340,7 +3346,8 @@
         "tags": [
           "empresas"
         ],
-        "summary": "DELETE /api/v1/empresas/{id}/honorarios/{bid}",
+        "summary": "DELETE → borra una boleta (409 si tiene un asiento vigente en Contabilidad). Solo la empresa.",
+        "description": "DELETE → borra una boleta (409 si tiene un asiento vigente en Contabilidad). Solo la empresa.",
         "x-archivo": "app/api/v1/empresas/[id]/honorarios/[bid]/route.js",
         "responses": {
           "200": {
@@ -4334,7 +4341,8 @@
         "tags": [
           "empresas"
         ],
-        "summary": "POST /api/v1/empresas/{id}/mantenimiento/equipos",
+        "summary": "POST { …equipo } → registra un equipo de mantenimiento (validarEquipo en shared/mantenimiento.js). Código repetido → 409",
+        "description": "POST { …equipo } → registra un equipo de mantenimiento (validarEquipo en shared/mantenimiento.js). Código repetido → 409.",
         "x-archivo": "app/api/v1/empresas/[id]/mantenimiento/equipos/route.js",
         "responses": {
           "200": {
@@ -4883,7 +4891,8 @@
         "tags": [
           "empresas"
         ],
-        "summary": "DELETE /api/v1/empresas/{id}/marketing/piezas/{mid}",
+        "summary": "DELETE → borra una pieza de marketing. Solo la empresa.",
+        "description": "DELETE → borra una pieza de marketing. Solo la empresa.",
         "x-archivo": "app/api/v1/empresas/[id]/marketing/piezas/[mid]/route.js",
         "responses": {
           "200": {
@@ -5894,7 +5903,8 @@
         "tags": [
           "empresas"
         ],
-        "summary": "DELETE /api/v1/empresas/{id}/postulaciones/{pid}/items/{itid}",
+        "summary": "DELETE → quita un ítem de la postulación.",
+        "description": "DELETE → quita un ítem de la postulación.",
         "x-archivo": "app/api/v1/empresas/[id]/postulaciones/[pid]/items/[itid]/route.js",
         "responses": {
           "200": {
@@ -6136,7 +6146,8 @@
         "tags": [
           "empresas"
         ],
-        "summary": "GET /api/v1/empresas/{id}/postulaciones",
+        "summary": "GET → postulaciones de la empresa con sus ítems y estados, y si el conector de Mercado Público está disponible. La empre",
+        "description": "GET → postulaciones de la empresa con sus ítems y estados, y si el conector de Mercado Público está disponible. La empresa y su asesor.",
         "x-archivo": "app/api/v1/empresas/[id]/postulaciones/route.js",
         "responses": {
           "200": {
@@ -7036,7 +7047,8 @@
         "tags": [
           "empresas"
         ],
-        "summary": "DELETE /api/v1/empresas/{id}/proyectos/{pid}/partidas/{ptid}",
+        "summary": "DELETE → borra una partida del proyecto.",
+        "description": "DELETE → borra una partida del proyecto.",
         "x-archivo": "app/api/v1/empresas/[id]/proyectos/[pid]/partidas/[ptid]/route.js",
         "responses": {
           "200": {
@@ -7418,7 +7430,8 @@
         "tags": [
           "empresas"
         ],
-        "summary": "DELETE /api/v1/empresas/{id}/registros/{coleccion}/{rid}",
+        "summary": "DELETE → borra un registro de la colección (oportunidades, fondos, proyectos, movimientos, leads).",
+        "description": "DELETE → borra un registro de la colección (oportunidades, fondos, proyectos, movimientos, leads).",
         "x-archivo": "app/api/v1/empresas/[id]/registros/[coleccion]/[rid]/route.js",
         "responses": {
           "200": {
@@ -7473,7 +7486,8 @@
         "tags": [
           "empresas"
         ],
-        "summary": "GET /api/v1/empresas/{id}/registros/{coleccion}",
+        "summary": "GET → registros de la colección en orden de creación.",
+        "description": "GET → registros de la colección en orden de creación.",
         "x-archivo": "app/api/v1/empresas/[id]/registros/[coleccion]/route.js",
         "responses": {
           "200": {
@@ -7500,7 +7514,8 @@
         "tags": [
           "empresas"
         ],
-        "summary": "POST /api/v1/empresas/{id}/registros/{coleccion}",
+        "summary": "POST { …campos de la colección } → crea un registro; los campos se validan con shared/schemas.js (Schemas.validate).",
+        "description": "POST { …campos de la colección } → crea un registro; los campos se validan con shared/schemas.js (Schemas.validate).",
         "x-archivo": "app/api/v1/empresas/[id]/registros/[coleccion]/route.js",
         "responses": {
           "200": {
@@ -7554,7 +7569,8 @@
         "tags": [
           "empresas"
         ],
-        "summary": "GET /api/v1/empresas/{id}",
+        "summary": "GET → datos de la empresa (si el usuario es dueño o asesor).",
+        "description": "GET → datos de la empresa (si el usuario es dueño o asesor).",
         "x-archivo": "app/api/v1/empresas/[id]/route.js",
         "responses": {
           "200": {
@@ -7581,7 +7597,8 @@
         "tags": [
           "empresas"
         ],
-        "summary": "PATCH /api/v1/empresas/{id}",
+        "summary": "PATCH { …campos de la empresa } → actualiza solo los campos enviados (Schemas.validate en modo parcial).",
+        "description": "PATCH { …campos de la empresa } → actualiza solo los campos enviados (Schemas.validate en modo parcial).",
         "x-archivo": "app/api/v1/empresas/[id]/route.js",
         "responses": {
           "200": {
@@ -7615,7 +7632,8 @@
         "tags": [
           "empresas"
         ],
-        "summary": "DELETE /api/v1/empresas/{id}",
+        "summary": "DELETE → borra la empresa y todo lo que depende de ella. Solo el dueño.",
+        "description": "DELETE → borra la empresa y todo lo que depende de ella. Solo el dueño.",
         "x-archivo": "app/api/v1/empresas/[id]/route.js",
         "responses": {
           "200": {
@@ -8704,7 +8722,8 @@
         "tags": [
           "empresas"
         ],
-        "summary": "DELETE /api/v1/empresas/{id}/seguridad/claves/{kid}",
+        "summary": "DELETE → revoca una clave de dispositivo de seguridad (queda registrada como revocada).",
+        "description": "DELETE → revoca una clave de dispositivo de seguridad (queda registrada como revocada).",
         "x-archivo": "app/api/v1/empresas/[id]/seguridad/claves/[kid]/route.js",
         "responses": {
           "200": {
@@ -8798,7 +8817,8 @@
         "tags": [
           "empresas"
         ],
-        "summary": "PATCH /api/v1/empresas/{id}/seguridad/dispositivos/{did}",
+        "summary": "PATCH { …campos } → actualiza un dispositivo de seguridad (validarDispositivo en modo parcial).",
+        "description": "PATCH { …campos } → actualiza un dispositivo de seguridad (validarDispositivo en modo parcial).",
         "x-archivo": "app/api/v1/empresas/[id]/seguridad/dispositivos/[did]/route.js",
         "responses": {
           "200": {
@@ -8832,7 +8852,8 @@
         "tags": [
           "empresas"
         ],
-        "summary": "DELETE /api/v1/empresas/{id}/seguridad/dispositivos/{did}",
+        "summary": "DELETE → borra un dispositivo (la base lo impide si tiene eventos).",
+        "description": "DELETE → borra un dispositivo (la base lo impide si tiene eventos).",
         "x-archivo": "app/api/v1/empresas/[id]/seguridad/dispositivos/[did]/route.js",
         "responses": {
           "200": {
@@ -9117,7 +9138,8 @@
         "tags": [
           "empresas"
         ],
-        "summary": "PATCH /api/v1/empresas/{id}/seguridad/sitios/{sid}",
+        "summary": "PATCH { …campos } → actualiza un sitio de seguridad (validarSitio en modo parcial).",
+        "description": "PATCH { …campos } → actualiza un sitio de seguridad (validarSitio en modo parcial).",
         "x-archivo": "app/api/v1/empresas/[id]/seguridad/sitios/[sid]/route.js",
         "responses": {
           "200": {
@@ -9557,7 +9579,8 @@
         "tags": [
           "empresas"
         ],
-        "summary": "PATCH /api/v1/empresas/{id}/universo/contratos/{cid}",
+        "summary": "PATCH { …campos } → actualiza un contrato; vigencia y horario se validan junto con lo ya guardado.",
+        "description": "PATCH { …campos } → actualiza un contrato; vigencia y horario se validan junto con lo ya guardado.",
         "x-archivo": "app/api/v1/empresas/[id]/universo/contratos/[cid]/route.js",
         "responses": {
           "200": {
@@ -9971,7 +9994,8 @@
         "tags": [
           "empresas"
         ],
-        "summary": "POST /api/v1/empresas",
+        "summary": "POST { …campos de la empresa } → crea una empresa del usuario (Schemas.validate(\"empresa\")).",
+        "description": "POST { …campos de la empresa } → crea una empresa del usuario (Schemas.validate(\"empresa\")).",
         "x-archivo": "app/api/v1/empresas/route.js",
         "responses": {
           "200": {
@@ -10111,7 +10135,8 @@
         "tags": [
           "mercadopublico"
         ],
-        "summary": "GET /api/v1/mercadopublico/licitaciones/{codigo}",
+        "summary": "GET → ficha de una licitación de Mercado Público por su código (consulta al cupo del ticket de Bitcopper; exige sesión).",
+        "description": "GET → ficha de una licitación de Mercado Público por su código (consulta al cupo del ticket de Bitcopper; exige sesión).",
         "x-archivo": "app/api/v1/mercadopublico/licitaciones/[codigo]/route.js",
         "responses": {
           "200": {
@@ -10180,7 +10205,8 @@
         "tags": [
           "mercadopublico"
         ],
-        "summary": "GET /api/v1/mercadopublico/ordenes/{codigo}",
+        "summary": "GET → ficha de una orden de compra de Mercado Público por su código (exige sesión).",
+        "description": "GET → ficha de una orden de compra de Mercado Público por su código (exige sesión).",
         "x-archivo": "app/api/v1/mercadopublico/ordenes/[codigo]/route.js",
         "responses": {
           "200": {
